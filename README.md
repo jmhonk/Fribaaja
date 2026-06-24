@@ -1,45 +1,180 @@
-# Fribaaja
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fribaaja</title>
 
-Fribaaja on Android-sovellus frisbeegolfin pisteidenlaskuun. Suunniteltu käytettäväksi kierroksen aikana kentällä — nopea, selkeä ja toimii offline.
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b1220;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
 
-## Ominaisuudet
+    header {
+      padding: 80px 20px 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e3a8a, #0b1220);
+    }
 
-### Kierroksen pelaaminen
-- **Pisteiden syöttö** väylä kerrallaan, tuki OB-merkinnöille
-- **Tulostaulukko** reaaliajassa kierroksen aikana
-- **Heittoalijärjestys** lasketaan automaattisesti väylän tulosten perusteella
-- **Kierroksen keskeyttäminen** ilman tallennusta
-- **Laskentatyyli** — Zero (laskenta nollasta) tai Par (laskenta par-arvosta)
+    header h1 {
+      font-size: 48px;
+      margin: 0;
+    }
 
-### Pelaajat & radat
-- **Usean pelaajan tuki** — lisää pelaajia tallennetusta listasta tai luo uusia
-- **Radat** — tallenna omia ratoja väyläkohtaisine pareineen (1–36 väylää)
-- **Suosikit** — tähtimerkkaa usein käytetyt pelaajat ja radat
+    header p {
+      font-size: 18px;
+      color: #cbd5e1;
+      max-width: 700px;
+      margin: 20px auto 0;
+    }
 
-### Historia & tilastot
-- **Historia** — kaikki pelatut kierrokset tallentuvat, selattavissa väylä kerrallaan
-- **Kierrostilastot** — birdie, eagle, holari, OB, par, bogey ym. kierroksen päätyttyä
-- **Pelaajatilastot** — kehityksen seuranta, parhaat kierrokset, ratakohtaiset tilastot
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-### Käyttöliittymä
-- **Pyyhkäisynavigointi** — siirry näkymien välillä pyyhkäisemällä vasemmalle tai oikealle
-- **Pohjanavigaatio** — 5 välilehteä: Pelaajat, Radat, Kierros, Historia, Tilastot
-- **Kieli** — suomi ja englanti
-- **Teema** — tumma ja vaalea, valittava korostusväri
-- **Haptinen palaute** — värinäpalaute nappeja painettaessa (kytkettävissä pois)
+    .card {
+      background: #111827;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
 
-### Tiedot
-- **Varmuuskopiointi** — vie ja tuo kaikki data JSON-tiedostona
+    h2 {
+      color: #60a5fa;
+      margin-top: 0;
+    }
 
-## Tekniikka
+    h3 {
+      color: #93c5fd;
+    }
 
-- Flutter (Dart)
-- Provider — tilanhallinta
-- SharedPreferences — paikallinen tallennus
-- Google Fonts (Poppins)
-- Kohdeympäristö: Android
+    ul {
+      padding-left: 20px;
+    }
 
-## Lataus
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
 
-- **Liity google ryhmän jäseneksi tästä:** https://groups.google.com/g/fribaaja-closed-beta
-- **Sen jälkeen voit ladata appin Play-storesta:** https://play.google.com/store/apps/details?id=fi.fribaaja.app
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+    }
+
+    .btn-secondary {
+      background: #1f2937;
+      color: #e5e7eb;
+      border: 1px solid #374151;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    a {
+      color: #60a5fa;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Fribaaja</h1>
+  <p>
+    Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii täysin offline.
+  </p>
+
+  <div class="buttons">
+    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=fi.fribaaja.app" target="_blank">
+      Lataa Play Storesta
+    </a>
+    <a class="btn btn-secondary" href="https://groups.google.com/g/fribaaja-closed-beta" target="_blank">
+      Liity beta-testaajaksi
+    </a>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Ominaisuudet</h2>
+
+    <h3>Kierroksen pelaaminen</h3>
+    <ul>
+      <li>Pisteiden syöttö väylä kerrallaan, OB-tuki</li>
+      <li>Reaaliaikainen tulostaulukko</li>
+      <li>Automaattinen heittojärjestys</li>
+      <li>Kierroksen keskeytys ilman tallennusta</li>
+      <li>Zero / Par -laskentatila</li>
+    </ul>
+
+    <h3>Pelaajat & radat</h3>
+    <ul>
+      <li>Usean pelaajan tuki</li>
+      <li>Ratojen tallennus (1–36 väylää)</li>
+      <li>Suosikit</li>
+    </ul>
+
+    <h3>Historia & tilastot</h3>
+    <ul>
+      <li>Kierroshistoria väyläkohtaisesti</li>
+      <li>Kierrostilastot (birdie, eagle, OB…)</li>
+      <li>Pelaajakohtainen kehitys</li>
+    </ul>
+
+    <h3>Käyttöliittymä</h3>
+    <ul>
+      <li>Pyyhkäisynavigointi</li>
+      <li>5 välilehteä</li>
+      <li>Suomi & Englanti</li>
+      <li>Tumma / vaalea teema</li>
+      <li>Haptinen palaute</li>
+    </ul>
+
+    <h3>Tiedot</h3>
+    <ul>
+      <li>JSON-varmuuskopiointi</li>
+      <li>Kaikki data tallennetaan laitteelle</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Tekniikka</h2>
+    <ul>
+      <li>Flutter (Dart)</li>
+      <li>Provider (tilanhallinta)</li>
+      <li>SharedPreferences (paikallinen tallennus)</li>
+      <li>Google Fonts (Poppins)</li>
+      <li>Android-kohdeympäristö</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  © 2026 Fribaaja • Made with Flutter
+</footer>
+
+</body>
+</html>
