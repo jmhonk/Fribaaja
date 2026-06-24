@@ -21,7 +21,7 @@
     }
 
     header h1 {
-      font-size: 48px;
+      font-size: 52px;
       margin: 0;
     }
 
@@ -40,10 +40,10 @@
 
     .card {
       background: #111827;
-      padding: 20px;
+      padding: 25px;
       margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      border-radius: 14px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
     }
 
     h2 {
@@ -59,18 +59,21 @@
       padding-left: 20px;
     }
 
-    .buttons {
+    .cta {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 20px;
     }
 
     .btn {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      border-radius: 8px;
+      display: block;
+      width: 100%;
+      max-width: 400px;
+      margin: 10px auto;
+      padding: 14px 20px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
+      text-align: center;
     }
 
     .btn-primary {
@@ -104,25 +107,48 @@
   <p>
     Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii täysin offline.
   </p>
-
-  <div class="buttons">
-    <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=fi.fribaaja.app" target="_blank">
-      Lataa Play Storesta
-    </a>
-    <a class="btn btn-secondary" href="https://groups.google.com/g/fribaaja-closed-beta" target="_blank">
-      Liity beta-testaajaksi
-    </a>
-  </div>
 </header>
 
 <div class="container">
 
+  <!-- ONBOARDING -->
+  <div class="card">
+    <h2>Aloita käyttö</h2>
+
+    <div class="cta">
+
+      <a class="btn btn-secondary"
+         href="https://groups.google.com/g/fribaaja-closed-beta"
+         target="_blank">
+        1. Liity beta-testaajaksi
+      </a>
+
+      <a class="btn btn-primary"
+         href="https://play.google.com/store/apps/details?id=fi.fribaaja.app"
+         target="_blank">
+        2. Lataa Play Storesta
+      </a>
+
+      <a class="btn btn-secondary"
+         href="https://jmhonk.github.io/Fribaaja/PrivacyPolicy.html"
+         target="_blank">
+        Privacy Policy
+      </a>
+
+      <p style="margin-top:15px; color:#94a3b8; font-size:14px;">
+        Huom: Sovellus näkyy ladattavana vasta beta-jäsenyyden hyväksynnän jälkeen.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- FEATURES -->
   <div class="card">
     <h2>Ominaisuudet</h2>
 
     <h3>Kierroksen pelaaminen</h3>
     <ul>
-      <li>Pisteiden syöttö väylä kerrallaan, OB-tuki</li>
+      <li>Pisteiden syöttö väylä kerrallaan (OB-tuki)</li>
       <li>Reaaliaikainen tulostaulukko</li>
       <li>Automaattinen heittojärjestys</li>
       <li>Kierroksen keskeytys ilman tallennusta</li>
@@ -138,8 +164,8 @@
 
     <h3>Historia & tilastot</h3>
     <ul>
-      <li>Kierroshistoria väyläkohtaisesti</li>
-      <li>Kierrostilastot (birdie, eagle, OB…)</li>
+      <li>Kierroshistoria</li>
+      <li>Birdie / eagle / OB -tilastot</li>
       <li>Pelaajakohtainen kehitys</li>
     </ul>
 
@@ -155,10 +181,11 @@
     <h3>Tiedot</h3>
     <ul>
       <li>JSON-varmuuskopiointi</li>
-      <li>Kaikki data tallennetaan laitteelle</li>
+      <li>Kaikki data pysyy laitteella</li>
     </ul>
   </div>
 
+  <!-- TECH -->
   <div class="card">
     <h2>Tekniikka</h2>
     <ul>
@@ -166,14 +193,14 @@
       <li>Provider (tilanhallinta)</li>
       <li>SharedPreferences (paikallinen tallennus)</li>
       <li>Google Fonts (Poppins)</li>
-      <li>Android-kohdeympäristö</li>
+      <li>Android</li>
     </ul>
   </div>
 
 </div>
 
 <footer>
-  © 2026 Fribaaja • Made with Flutter
+  © 2026 Fribaaja • Built with Flutter
 </footer>
 
 </body>
