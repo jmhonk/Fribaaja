@@ -49,6 +49,7 @@
     h2 {
       color: #60a5fa;
       margin-top: 0;
+      text-align: center;
     }
 
     h3 {
@@ -59,20 +60,21 @@
       padding-left: 20px;
     }
 
-.cta {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin-top: 20px;
-}
+    .cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+    }
+
     .step {
-  font-weight: bold;
-  color: #93c5fd;
-  margin: 10px 0;
-  text-align: center;
-  width: 100%;
-}
+      font-weight: bold;
+      color: #93c5fd;
+      margin: 10px 0;
+      text-align: center;
+      width: 100%;
+    }
 
     .btn {
       display: block;
@@ -104,8 +106,13 @@
       font-size: 14px;
     }
 
-    a {
+    footer a {
       color: #60a5fa;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -123,26 +130,23 @@
 
   <!-- ONBOARDING -->
   <div class="card">
+
     <h2>Aloita käyttö</h2>
 
     <div class="cta">
 
+      <div class="step">1. Liity beta-testaajaksi</div>
       <a class="btn btn-secondary"
          href="https://groups.google.com/g/fribaaja-closed-beta"
          target="_blank">
-        1. Liity beta-testaajaksi
+        Liity beta-testaajaksi
       </a>
 
+      <div class="step">2. Lataa sovellus Play Storesta</div>
       <a class="btn btn-primary"
          href="https://play.google.com/store/apps/details?id=fi.fribaaja.app"
          target="_blank">
-        2. Lataa Play Storesta
-      </a>
-
-      <a class="btn btn-secondary"
-         href="https://jmhonk.github.io/Fribaaja/PrivacyPolicy.html"
-         target="_blank">
-        Privacy Policy
+        Lataa Play Storesta
       </a>
 
       <p style="margin-top:15px; color:#94a3b8; font-size:14px;">
@@ -210,7 +214,10 @@
 </div>
 
 <footer>
-  © 2026 Fribaaja • Built with Flutter
+  © 2026 Fribaaja • Built with Flutter •
+  <a href="https://jmhonk.github.io/Fribaaja/PrivacyPolicy.html" target="_blank">
+    Privacy Policy
+  </a>
 </footer>
 
 </body>
