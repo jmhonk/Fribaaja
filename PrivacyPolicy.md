@@ -15,3 +15,6 @@ The app includes an optional backup feature that allows you to export or import 
 
 **Deleting your data**  
 You can delete all data by uninstalling the app from your device.
+
+**Contact**  
+jmhonkanen@outlook.com
