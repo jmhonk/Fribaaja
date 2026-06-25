@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fribaaja</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -52,6 +56,10 @@
       text-align: center;
     }
 
+    h3 {
+      color: #93c5fd;
+    }
+
     ul {
       padding-left: 20px;
     }
@@ -71,6 +79,7 @@
       text-decoration: none;
       font-weight: bold;
       text-align: center;
+      box-sizing: border-box;
     }
 
     .btn-primary {
@@ -78,10 +87,18 @@
       color: white;
     }
 
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
     .btn-secondary {
       background: #1f2937;
       color: #e5e7eb;
       border: 1px solid #374151;
+    }
+
+    .btn-secondary:hover {
+      background: #273449;
     }
 
     footer {
@@ -99,6 +116,20 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 40px;
+      }
+
+      header p {
+        font-size: 16px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
 
@@ -113,9 +144,7 @@
 
 <div class="container">
 
-  <!-- ONBOARDING -->
   <div class="card">
-
     <h2>Aloita käyttö</h2>
 
     <div class="cta">
@@ -139,7 +168,6 @@
     </div>
   </div>
 
-  <!-- FEATURES -->
   <div class="card">
     <h2>Ominaisuudet</h2>
 
@@ -163,7 +191,6 @@
     </ul>
   </div>
 
-  <!-- TECH -->
   <div class="card">
     <h2>Tekniikka</h2>
     <ul>
