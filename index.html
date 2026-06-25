@@ -47,7 +47,7 @@
       padding: 25px;
       margin: 20px 0;
       border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
     }
 
     h2 {
@@ -58,15 +58,21 @@
 
     h3 {
       color: #93c5fd;
+      margin-top: 24px;
+      margin-bottom: 10px;
     }
 
     ul {
-      padding-left: 20px;
+      margin-top: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
     }
 
     .cta {
       text-align: center;
-      margin-top: 20px;
     }
 
     .btn {
@@ -80,6 +86,7 @@
       font-weight: bold;
       text-align: center;
       box-sizing: border-box;
+      transition: 0.2s ease;
     }
 
     .btn-primary {
@@ -101,6 +108,12 @@
       background: #273449;
     }
 
+    .note {
+      margin-top: 15px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
     footer {
       text-align: center;
       padding: 40px 20px;
@@ -118,6 +131,10 @@
     }
 
     @media (max-width: 600px) {
+      header {
+        padding: 60px 20px 30px;
+      }
+
       header h1 {
         font-size: 40px;
       }
@@ -138,7 +155,7 @@
 <header>
   <h1>Fribaaja</h1>
   <p>
-    Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii täysin offline.
+    Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii offline.
   </p>
 </header>
 
@@ -148,7 +165,6 @@
     <h2>Aloita käyttö</h2>
 
     <div class="cta">
-
       <a class="btn btn-secondary"
          href="https://groups.google.com/g/fribaaja-closed-beta"
          target="_blank">
@@ -161,44 +177,62 @@
         2. Lataa Play Storesta
       </a>
 
-      <p style="margin-top:15px; color:#94a3b8; font-size:14px;">
+      <p class="note">
         Huom: Sovellus näkyy ladattavana vasta beta-jäsenyyden hyväksynnän jälkeen.
       </p>
-
     </div>
   </div>
 
   <div class="card">
     <h2>Ominaisuudet</h2>
 
+    <h3>Kierroksen pelaaminen</h3>
     <ul>
-      <li>Kierroksen pisteiden syöttö väylä kerrallaan (OB-tuki)</li>
-      <li>Reaaliaikainen tulostaulukko</li>
-      <li>Automaattinen heittojärjestys</li>
-      <li>Kierroksen keskeytys ilman tallennusta</li>
-      <li>Zero / Par -laskentatila</li>
-      <li>Usean pelaajan tuki</li>
-      <li>Ratojen tallennus (1–36 väylää)</li>
-      <li>Suosikit</li>
-      <li>Kierroshistoria ja tilastot</li>
-      <li>Pelaajakohtainen kehitys</li>
-      <li>Pyyhkäisynavigointi</li>
-      <li>Suomi & Englanti</li>
-      <li>Tumma / vaalea teema</li>
-      <li>Haptinen palaute</li>
-      <li>JSON-varmuuskopiointi</li>
-      <li>Kaikki data pysyy laitteella</li>
+      <li><strong>Pisteiden syöttö</strong> väylä kerrallaan, tuki OB-merkinnöille</li>
+      <li><strong>Tulostaulukko</strong> reaaliajassa kierroksen aikana</li>
+      <li><strong>Heittoalijärjestys</strong> lasketaan automaattisesti väylän tulosten perusteella</li>
+      <li><strong>Kierroksen keskeyttäminen</strong> ilman tallennusta</li>
+      <li><strong>Laskentatyyli</strong> — Zero (laskenta nollasta) tai Par (laskenta par-arvosta)</li>
+    </ul>
+
+    <h3>Pelaajat &amp; radat</h3>
+    <ul>
+      <li><strong>Usean pelaajan tuki</strong> — lisää pelaajia tallennetusta listasta tai luo uusia</li>
+      <li><strong>Radat</strong> — tallenna omia ratoja väyläkohtaisine pareineen (1–36 väylää)</li>
+      <li><strong>Suosikit</strong> — tähtimerkkaa usein käytetyt pelaajat ja radat</li>
+    </ul>
+
+    <h3>Historia &amp; tilastot</h3>
+    <ul>
+      <li><strong>Historia</strong> — kaikki pelatut kierrokset tallentuvat, selattavissa väylä kerrallaan</li>
+      <li><strong>Kierrostilastot</strong> — birdie, eagle, holari, OB, par, bogey ym. kierroksen päätyttyä</li>
+      <li><strong>Pelaajatilastot</strong> — kehityksen seuranta, parhaat kierrokset, ratakohtaiset tilastot</li>
+    </ul>
+
+    <h3>Käyttöliittymä</h3>
+    <ul>
+      <li><strong>Pyyhkäisynavigointi</strong> — siirry näkymien välillä pyyhkäisemällä vasemmalle tai oikealle</li>
+      <li><strong>Pohjanavigaatio</strong> — 5 välilehteä: Pelaajat, Radat, Kierros, Historia, Tilastot</li>
+      <li><strong>Kieli</strong> — suomi ja englanti</li>
+      <li><strong>Teema</strong> — tumma ja vaalea, valittava korostusväri</li>
+      <li><strong>Haptinen palaute</strong> — värinäpalaute nappeja painettaessa (kytkettävissä pois)</li>
+    </ul>
+
+    <h3>Tiedot</h3>
+    <ul>
+      <li><strong>Varmuuskopiointi</strong> — vie ja tuo kaikki data JSON-tiedostona</li>
     </ul>
   </div>
 
   <div class="card">
     <h2>Tekniikka</h2>
+
     <ul>
       <li>Flutter (Dart)</li>
-      <li>Provider (tilanhallinta)</li>
-      <li>SharedPreferences (paikallinen tallennus)</li>
+      <li>Provider — tilanhallinta</li>
+      <li>SharedPreferences — paikallinen tallennus</li>
       <li>Google Fonts (Poppins)</li>
-      <li>Android</li>
+      <li>Kohdeympäristö: Android</li>
     </ul>
   </div>
 
