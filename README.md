@@ -38,7 +38,3 @@ Fribaaja on Android-sovellus frisbeegolfin pisteidenlaskuun. Suunniteltu käytet
 - SharedPreferences — paikallinen tallennus
 - Google Fonts (Poppins)
 - Kohdeympäristö: Android
-
-## Lataus
-- **Liity google ryhmän jäseneksi tästä:** https://groups.google.com/g/fribaaja-closed-beta
-- **Sen jälkeen voit ladata appin Play-storesta:** https://play.google.com/store/apps/details?id=fi.fribaaja.app
