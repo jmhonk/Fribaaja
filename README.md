@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="fribaaja_icon.png" alt="Fribaaja icon" width="120">
+</p>
+
 # Fribaaja
 
 Fribaaja on Android-sovellus frisbeegolfin pisteidenlaskuun. Suunniteltu käytettäväksi kierroksen aikana kentällä — nopea, selkeä ja toimii offline.
