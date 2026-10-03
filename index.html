@@ -4,148 +4,295 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fribaaja</title>
+  <link rel="icon" href="fribaaja_icon.png">
+  <meta name="description" content="Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii offline.">
+  <meta name="theme-color" content="#07161a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;800&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --bg: #07161a;
+      --surface: #0e2328;
+      --surface-2: #13303a;
+      --line: #1f4049;
+      --text: #e2f4f6;
+      --muted: #8fb0b6;
+      --cyan: #2bd4e8;
+      --cyan-deep: #0e7f8f;
+      --chain: #f2c230;
+      --bogey: #f08a5d;
     }
+
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b1220;
-      color: #e5e7eb;
+      font-family: "Barlow", system-ui, sans-serif;
+      font-size: 17px;
       line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
     }
 
+    a { color: var(--cyan); }
+    a:focus-visible, .btn:focus-visible { outline: 3px solid var(--chain); outline-offset: 3px; }
+
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+    /* ---------- Hero ---------- */
     header {
-      padding: 80px 20px 40px;
-      text-align: center;
-      background: linear-gradient(135deg, #1e3a8a, #0b1220);
+      background:
+        radial-gradient(700px 360px at 15% 0%, rgba(43, 212, 232, .16), transparent 70%),
+        linear-gradient(180deg, #0a2624 0%, var(--bg) 100%);
+      padding: 64px 0 56px;
+      border-bottom: 1px solid var(--line);
     }
 
-    header h1 {
-      font-size: 52px;
+    .hero {
+      display: grid;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .app-icon {
+      width: 88px;
+      height: 88px;
+      border-radius: 22px;
+      display: block;
+      margin-bottom: 20px;
+      box-shadow: 0 0 0 1px var(--line), 0 12px 30px rgba(0, 0, 0, .45);
+    }
+
+    h1 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      font-size: clamp(64px, 14vw, 128px);
+      line-height: .9;
+      letter-spacing: -0.01em;
       margin: 0;
     }
 
-    header p {
+    .lead {
+      font-size: 20px;
+      max-width: 30ch;
+      margin: 18px 0 0;
+      color: var(--muted);
+    }
+
+    /* Mini scorecard in the hero */
+    .scorecard {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 18px 18px 14px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, .45);
+      transform: rotate(-1.5deg);
+      max-width: 480px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    .scorecard-head {
+      display: flex;
+      justify-content: space-between;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
       font-size: 18px;
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 20px auto 0;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-
-    .card {
-      background: #111827;
-      padding: 25px;
-      margin: 20px 0;
-      border-radius: 14px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
-    }
-
-    h2 {
-      color: #60a5fa;
-      margin-top: 0;
-      text-align: center;
-    }
-
-    h3 {
-      color: #93c5fd;
-      margin-top: 24px;
       margin-bottom: 10px;
     }
 
-    ul {
-      margin-top: 0;
-      padding-left: 22px;
-    }
+    .scorecard-head span:last-child { color: var(--cyan); }
 
-    li {
-      margin-bottom: 8px;
-    }
-
-    .cta {
+    .scorecard table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Barlow Condensed", sans-serif;
+      font-size: 17px;
       text-align: center;
     }
+
+    .scorecard th, .scorecard td {
+      border: 1px solid var(--line);
+      padding: 4px 0;
+      width: 9%;
+    }
+
+    .scorecard th:first-child, .scorecard td:first-child {
+      text-align: left;
+      padding-left: 8px;
+      width: auto;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .scorecard thead th { color: var(--muted); font-weight: 600; }
+
+    .s {
+      display: inline-grid;
+      place-items: center;
+      width: 26px;
+      height: 26px;
+      font-weight: 600;
+    }
+    .s.b { border: 2px solid var(--cyan); border-radius: 50%; color: var(--cyan); }
+    .s.bo { border: 2px solid var(--bogey); color: var(--bogey); }
+
+    /* ---------- Start ---------- */
+    .start {
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+      padding: 40px 0;
+    }
+
+    .start-inner {
+      display: grid;
+      gap: 20px;
+      align-items: center;
+    }
+
+    h2 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 1;
+      margin: 0;
+    }
+
+    .steps { display: grid; gap: 12px; }
 
     .btn {
-      display: block;
-      width: 100%;
-      max-width: 400px;
-      margin: 10px auto;
-      padding: 14px 20px;
-      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 18px;
       text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      box-sizing: border-box;
-      transition: 0.2s ease;
+      border: 2px solid var(--cyan);
     }
 
-    .btn-primary {
-      background: #2563eb;
-      color: white;
+    .btn .n {
+      display: inline-grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 800;
+      font-size: 18px;
+      flex: none;
     }
 
-    .btn-primary:hover {
-      background: #1d4ed8;
-    }
+    .btn-secondary { background: transparent; color: var(--cyan); }
+    .btn-secondary .n { background: var(--surface-2); color: var(--cyan); }
+    .btn-secondary:hover { background: var(--surface-2); }
 
-    .btn-secondary {
-      background: #1f2937;
-      color: #e5e7eb;
-      border: 1px solid #374151;
-    }
-
-    .btn-secondary:hover {
-      background: #273449;
-    }
+    .btn-primary { background: var(--cyan); color: #04252b; }
+    .btn-primary .n { background: #04252b; color: var(--cyan); }
+    .btn-primary:hover { background: #5fe1f0; border-color: #5fe1f0; }
 
     .note {
-      margin-top: 15px;
-      color: #94a3b8;
-      font-size: 14px;
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 15px;
     }
 
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: #9ca3af;
-      font-size: 14px;
+    /* ---------- Features ---------- */
+    main.wrap { padding-top: 56px; padding-bottom: 24px; }
+
+    .group {
+      display: grid;
+      gap: 14px;
+      padding: 28px 0;
+      border-top: 1px solid var(--line);
     }
 
-    footer a {
-      color: #60a5fa;
-      text-decoration: none;
+    .group:first-of-type { border-top: 0; padding-top: 0; }
+
+    .group h3 {
+      font-family: "Barlow Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1.1;
+      margin: 0;
+      color: var(--cyan);
     }
 
-    footer a:hover {
-      text-decoration: underline;
+    .features {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 60px 20px 30px;
-      }
+    .features li {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--cyan);
+      border-radius: 6px;
+      padding: 12px 14px;
+      font-size: 16px;
+      color: var(--muted);
+    }
 
-      header h1 {
-        font-size: 40px;
-      }
+    .features strong {
+      display: block;
+      font-size: 17px;
+      color: var(--text);
+    }
 
-      header p {
-        font-size: 16px;
-      }
+    .section-title { margin: 0 0 28px; }
 
-      .card {
-        padding: 20px;
-      }
+    .tech {
+      margin-top: 40px;
+      padding: 28px 0 8px;
+      border-top: 1px solid var(--line);
+      display: grid;
+      gap: 14px;
+    }
+
+    .chips {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chips li {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 14px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    footer.wrap {
+      padding-top: 32px; padding-bottom: 48px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    @media (min-width: 820px) {
+      .hero { grid-template-columns: 1fr 1fr; }
+      .scorecard { justify-self: end; }
+      .start-inner { grid-template-columns: 1fr 1.4fr; }
+      .group, .tech { grid-template-columns: 240px 1fr; align-items: start; }
+      .group h3, .tech h2 { padding-top: 4px; }
+    }
+
+    @media (max-width: 480px) {
+      header { padding: 44px 0 40px; }
+      .scorecard { padding: 14px 10px 10px; transform: none; }
+      .scorecard table { font-size: 15px; }
+      .s { width: 22px; height: 22px; }
     }
   </style>
 </head>
@@ -153,96 +300,123 @@
 <body>
 
 <header>
-  <h1>Fribaaja</h1>
-  <p>
-    Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii offline.
-  </p>
+  <div class="wrap hero">
+    <div>
+      <img class="app-icon" src="fribaaja_icon.png" alt="Fribaaja app icon" width="88" height="88">
+      <h1>Fribaaja</h1>
+      <p class="lead">Frisbeegolfin pisteidenlaskusovellus — nopea, selkeä ja toimii offline.</p>
+    </div>
+
+    <div class="scorecard" aria-hidden="true">
+      <div class="scorecard-head"><span>Väylät 1–9</span><span>−1</span></div>
+      <table>
+        <thead>
+          <tr><th>Väylä</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Par</td><td>3</td><td>3</td><td>4</td><td>3</td><td>3</td><td>5</td><td>3</td><td>3</td><td>4</td></tr>
+          <tr>
+            <td>Tulos</td>
+            <td><span class="s">3</span></td>
+            <td><span class="s b">2</span></td>
+            <td><span class="s">4</span></td>
+            <td><span class="s">3</span></td>
+            <td><span class="s bo">4</span></td>
+            <td><span class="s b">4</span></td>
+            <td><span class="s">3</span></td>
+            <td><span class="s">3</span></td>
+            <td><span class="s">4</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </header>
 
-<div class="container">
-
-  <div class="card">
+<section class="start">
+  <div class="wrap start-inner">
     <h2>Aloita käyttö</h2>
-
-    <div class="cta">
-      <a class="btn btn-secondary"
-         href="https://groups.google.com/g/fribaaja-closed-beta"
-         target="_blank">
-        1. Liity beta-testaajaksi
+    <div class="steps">
+      <a class="btn btn-secondary" href="https://groups.google.com/g/fribaaja-closed-beta" target="_blank" rel="noopener">
+        <span class="n">1</span> Liity beta-testaajaksi
       </a>
-
-      <a class="btn btn-primary"
-         href="https://play.google.com/store/apps/details?id=fi.fribaaja.app"
-         target="_blank">
-        2. Lataa Play Storesta
+      <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=fi.fribaaja.app" target="_blank" rel="noopener">
+        <span class="n">2</span> Lataa Play Storesta
       </a>
       <p class="note">
-      Huom: Sovellus näkyy ladattavana vasta beta-jäsenyyden hyväksynnän jälkeen. <br>
-      Saatavilla vain Android-laitteilla.
+        Huom: Sovellus näkyy ladattavana vasta beta-jäsenyyden hyväksynnän jälkeen.<br>
+        Saatavilla vain Android-laitteilla.
       </p>
     </div>
   </div>
+</section>
 
-  <div class="card">
-    <h2>Ominaisuudet</h2>
+<main class="wrap">
+  <h2 class="section-title">Ominaisuudet</h2>
 
+  <section class="group">
     <h3>Kierroksen pelaaminen</h3>
-    <ul>
+    <ul class="features">
       <li><strong>Pisteiden syöttö</strong> väylä kerrallaan, tuki OB-merkinnöille</li>
       <li><strong>Tulostaulukko</strong> reaaliajassa kierroksen aikana</li>
       <li><strong>Heittoalijärjestys</strong> lasketaan automaattisesti väylän tulosten perusteella</li>
       <li><strong>Kierroksen keskeyttäminen</strong> ilman tallennusta</li>
-      <li><strong>Laskentatyyli</strong> — Zero (laskenta nollasta) tai Par (laskenta par-arvosta)</li>
+      <li><strong>Laskentatyyli</strong> Zero (laskenta nollasta) tai Par (laskenta par-arvosta)</li>
     </ul>
+  </section>
 
+  <section class="group">
     <h3>Pelaajat &amp; radat</h3>
-    <ul>
-      <li><strong>Usean pelaajan tuki</strong> — lisää pelaajia tallennetusta listasta tai luo uusia</li>
-      <li><strong>Radat</strong> — tallenna omia ratoja väyläkohtaisine pareineen (1–36 väylää)</li>
-      <li><strong>Suosikit</strong> — tähtimerkkaa usein käytetyt pelaajat ja radat</li>
+    <ul class="features">
+      <li><strong>Usean pelaajan tuki</strong> lisää pelaajia tallennetusta listasta tai luo uusia</li>
+      <li><strong>Radat</strong> tallenna omia ratoja väyläkohtaisine pareineen (1–36 väylää)</li>
+      <li><strong>Suosikit</strong> tähtimerkkaa usein käytetyt pelaajat ja radat</li>
     </ul>
+  </section>
 
+  <section class="group">
     <h3>Historia &amp; tilastot</h3>
-    <ul>
-      <li><strong>Historia</strong> — kaikki pelatut kierrokset tallentuvat, selattavissa väylä kerrallaan</li>
-      <li><strong>Kierrostilastot</strong> — birdie, eagle, holari, OB, par, bogey ym. kierroksen päätyttyä</li>
-      <li><strong>Pelaajatilastot</strong> — kehityksen seuranta, parhaat kierrokset, ratakohtaiset tilastot</li>
+    <ul class="features">
+      <li><strong>Historia</strong> kaikki pelatut kierrokset tallentuvat, selattavissa väylä kerrallaan</li>
+      <li><strong>Kierrostilastot</strong> birdie, eagle, holari, OB, par, bogey ym. kierroksen päätyttyä</li>
+      <li><strong>Pelaajatilastot</strong> kehityksen seuranta, parhaat kierrokset, ratakohtaiset tilastot</li>
     </ul>
+  </section>
 
+  <section class="group">
     <h3>Käyttöliittymä</h3>
-    <ul>
-      <li><strong>Pyyhkäisynavigointi</strong> — siirry näkymien välillä pyyhkäisemällä vasemmalle tai oikealle</li>
-      <li><strong>Pohjanavigaatio</strong> — 5 välilehteä: Pelaajat, Radat, Kierros, Historia, Tilastot</li>
-      <li><strong>Kieli</strong> — suomi ja englanti</li>
-      <li><strong>Teema</strong> — tumma ja vaalea, valittava korostusväri</li>
-      <li><strong>Haptinen palaute</strong> — värinäpalaute nappeja painettaessa (kytkettävissä pois)</li>
+    <ul class="features">
+      <li><strong>Pyyhkäisynavigointi</strong> siirry näkymien välillä pyyhkäisemällä vasemmalle tai oikealle</li>
+      <li><strong>Pohjanavigaatio</strong> 5 välilehteä: Pelaajat, Radat, Kierros, Historia, Tilastot</li>
+      <li><strong>Kieli</strong> suomi ja englanti</li>
+      <li><strong>Teema</strong> tumma ja vaalea, valittava korostusväri</li>
+      <li><strong>Haptinen palaute</strong> värinäpalaute nappeja painettaessa (kytkettävissä pois)</li>
     </ul>
+  </section>
 
+  <section class="group">
     <h3>Tiedot</h3>
-    <ul>
-      <li><strong>Varmuuskopiointi</strong> — vie ja tuo kaikki data JSON-tiedostona</li>
+    <ul class="features">
+      <li><strong>Varmuuskopiointi</strong> vie ja tuo kaikki data JSON-tiedostona</li>
     </ul>
-  </div>
+  </section>
 
-  <div class="card">
+  <section class="tech">
     <h2>Tekniikka</h2>
-
-    <ul>
+    <ul class="chips">
       <li>Flutter (Dart)</li>
       <li>Provider — tilanhallinta</li>
       <li>SharedPreferences — paikallinen tallennus</li>
       <li>Google Fonts (Poppins)</li>
       <li>Kohdeympäristö: Android</li>
     </ul>
-  </div>
+  </section>
+</main>
 
-</div>
-
-<footer>
-  © 2026 Fribaaja • Built with Flutter •
-  <a href="https://jmhonk.github.io/Fribaaja/PrivacyPolicy.html" target="_blank">
-    Privacy Policy
-  </a>
+<footer class="wrap">
+  © 2026 Jari-Matti Honkanen •
+  <a href="PrivacyPolicy.html">Privacy Policy</a> •
+  Contact: <a href="mailto:jmhonkanen@outlook.com">jmhonkanen@outlook.com</a>
 </footer>
 
 </body>
